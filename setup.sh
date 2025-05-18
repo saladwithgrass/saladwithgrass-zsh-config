@@ -1,8 +1,13 @@
 #!/usr/bin/bash
 
+
 # update submodules
 echo "Updating submodules"
 git submodule update --remote --init --recursive
+
+# setup zsh dot folder
+dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
+echo -e "$dotExport\n\n$(cat .zshrc_base)" > .zshrc
 
 # backup .zshrc
 BACKUP_FILE=~/.zshrc.prev

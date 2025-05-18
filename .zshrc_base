@@ -4,6 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 bindkey -v
+bindkey '^[^?' backward-kill-word
 
 function zle-line-init zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
@@ -32,6 +33,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+source $ZSH_DOT_FOLDER/activate-plugins.sh
+
 eval "$(starship init zsh)"
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
