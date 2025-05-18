@@ -4,6 +4,17 @@ HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
 bindkey -v
+
+function zle-line-init zle-keymap-select {
+  if [[ $KEYMAP == vicmd ]]; then
+    echo -ne '\e[2 q'
+  elif [[ $KEYMAP == (main|viins) ]]; then
+    echo -ne '\e[0 q'
+  fi
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/jazzhands/.zshrc'

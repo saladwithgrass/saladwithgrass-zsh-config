@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 # update submodules
+echo "Updating submodules"
 git submodule update --remote --init --recursive
 
 # backup .zshrc
