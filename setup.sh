@@ -10,7 +10,7 @@ if [ -z $ZSH_DOT_DIR ]; then
   dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
   echo -e "$dotExport\n\n$(cat .zshrc)" > .zshrc
 fi
-
+# setup formatting
 GREEN='\033[0;32m'
 bold=$(tput bold)
 normal=$(tput sgr0)
