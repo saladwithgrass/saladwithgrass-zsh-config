@@ -6,8 +6,10 @@ echo "Updating submodules"
 git submodule update --remote --init --recursive
 
 # setup zsh dot folder
-dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
-echo -e "$dotExport\n\n$(cat .zshrc_base)" > .zshrc
+if [ -z $ZSH_DOT_DIR ]; then
+  dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
+  echo -e "$dotExport\n\n$(cat .zshrc)" > .zshrc
+fi
 
 GREEN='\033[0;32m'
 bold=$(tput bold)
