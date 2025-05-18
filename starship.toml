@@ -1,0 +1,28 @@
+format = '''
+\[ (bold green)$directory\] $git_branch$fill$cmd_duration $time
+[$character](bold green)'''
+
+[character]
+success_symbol = '[\$](bold green)'
+error_symbol = '[\$](bold red)'
+vimcmd_symbol = '[V](bold blue)'
+
+[git_branch]
+symbol = "git:"
+style = "bold yellow"
+format = '[\[ $symbol$branch \]]($style) '
+
+[fill]
+symbol = ' '
+
+[time]
+disabled = false
+style = "bold red"
+time_format = "%H:%M"
+format = '[\[$time\]]($style) '
+
+[cmd_duration]
+disabled = false
+min_time = 10
+show_milliseconds = true
+format = 'took [$duration](bold yellow)'

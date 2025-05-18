@@ -9,12 +9,25 @@ git submodule update --remote --init --recursive
 dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
 echo -e "$dotExport\n\n$(cat .zshrc_base)" > .zshrc
 
+GREEN='\033[0;32m'
+
 # backup .zshrc
-BACKUP_FILE=~/.zshrc.prev
-echo "Backing up your .zshrc"
-echo "It will be saved to $BACKUP_FILE"
-mv ~/.zshrc $BACKUP_FILE
+ZSH_BACKUP_FILE=~/.zshrc.prev
+echo -e "${GREEN}Backing up your .zshrc"
+echo -e "${GREEN}It will be saved to $ZSH_BACKUP_FILE"
+mv ~/.zshrc $ZSH_BACKUP_FILE
+
+# backup starship config
+STARSHIP_BACKUP_FILE=~/.config/starship.toml.prev
+echo -e "${GREEN}Backing up your starship.toml"
+echo -e "${GREEN}It will be saved to $STARSHIP_BACKUP_FILE"
+mv ~/.config/starship.toml $STARSHIP_BACKUP_FILE
+
+# symlink to starship config
 
 # symlink to .zshrc
 echo "Creating symlink to .zshrc"
 ln -s $PWD/.zshrc ~/.zshrc
+# symlink to starship.toml
+echo "Creating symlink to starship.toml"
+ln -s $PWD/starship.toml ~/.config/starship.toml
