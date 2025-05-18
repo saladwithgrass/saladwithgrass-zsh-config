@@ -10,17 +10,19 @@ dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
 echo -e "$dotExport\n\n$(cat .zshrc_base)" > .zshrc
 
 GREEN='\033[0;32m'
+bold=$(tput bold)
+normal=$(tput sgr0)
 
 # backup .zshrc
 ZSH_BACKUP_FILE=~/.zshrc.prev
 echo -e "${GREEN}Backing up your .zshrc"
-echo -e "${GREEN}It will be saved to $ZSH_BACKUP_FILE"
+echo -e "${GREEN}It will be saved to $bold $ZSH_BACKUP_FILE$normal"
 mv ~/.zshrc $ZSH_BACKUP_FILE
 
 # backup starship config
 STARSHIP_BACKUP_FILE=~/.config/starship.toml.prev
 echo -e "${GREEN}Backing up your starship.toml"
-echo -e "${GREEN}It will be saved to $STARSHIP_BACKUP_FILE"
+echo -e "${GREEN}It will be saved to $bold $STARSHIP_BACKUP_FILE$normal"
 mv ~/.config/starship.toml $STARSHIP_BACKUP_FILE
 
 # symlink to starship config
