@@ -8,9 +8,9 @@ bindkey '^[^?' backward-kill-word
 
 function zle-line-init zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
-    echo -ne '\e[2 q'
+    echo -ne '[2 q'
   elif [[ $KEYMAP == (main|viins) ]]; then
-    echo -ne '\e[0 q'
+    echo -ne '[0 q'
   fi
 }
 zle -N zle-line-init
@@ -36,4 +36,3 @@ alias egrep='egrep --color=auto'
 source $ZSH_DOT_DIR/activate-plugins.sh
 
 eval "$(starship init zsh)"
-

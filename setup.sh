@@ -1,15 +1,19 @@
 #!/usr/bin/bash
 
-
 # update submodules
 echo "Updating submodules"
 git submodule update --remote --init --recursive
 
-# setup zsh dot folder
-if [ -z $ZSH_DOT_DIR ]; then
+# check if ZSH_DOT_DIR is required
+if grep -q 'export $ZSH_DOT_DIR=' .zshrc
+then 
+  # setup zsh dot folder
   dotExport="# directory with plugins\nexport ZSH_DOT_DIR=$PWD"
   echo -e "$dotExport\n\n$(cat .zshrc)" > .zshrc
+else
+  echo '$ZSH_DOT_DIR is configured'
 fi
+
 # setup formatting
 GREEN='\033[0;32m'
 bold=$(tput bold)
