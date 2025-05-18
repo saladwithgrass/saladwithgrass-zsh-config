@@ -33,7 +33,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
-source $ZSH_DOT_FOLDER/activate-plugins.sh
+source $ZSH_DOT_DIR/activate-plugins.sh
 
 eval "$(starship init zsh)"
 
