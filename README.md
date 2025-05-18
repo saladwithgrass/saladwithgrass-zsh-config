@@ -17,7 +17,7 @@ Basic Starship config with autosuggestions and vi mode
 First, install zsh and set as your shell.
 Instructions here are for Arch Linux, you can find information for other distros [here](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH) 
 For Arch Linux
-```
+```bash
 sudo pacman -S zsh
 chsh -s $(which zsh)
 ```
