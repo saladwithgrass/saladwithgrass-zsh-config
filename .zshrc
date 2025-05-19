@@ -1,9 +1,14 @@
+# directory with plugins
+export ZSH_DOT_DIR=/home/jazzhands/.zsh
+
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt beep
+
 bindkey -v
+KEYTIMEOUT=1
 bindkey '^[^?' backward-kill-word
 
 function zle-line-init zle-keymap-select {
@@ -36,3 +41,16 @@ alias egrep='egrep --color=auto'
 source $ZSH_DOT_DIR/activate-plugins.sh
 
 eval "$(starship init zsh)"
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'micromamba shell init' !!
+export MAMBA_EXE='/home/jazzhands/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/jazzhands/.micromamba';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    alias micromamba="$MAMBA_EXE"  # Fallback on help from micromamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
