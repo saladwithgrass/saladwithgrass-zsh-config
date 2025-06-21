@@ -1,5 +1,5 @@
 # directory with plugins
-export ZSH_DOT_DIR=/home/jazzhands/.zsh
+export ZSH_DOT_DIR=/home/vix/.zsh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -13,9 +13,9 @@ bindkey '^[^?' backward-kill-word
 
 function zle-line-init zle-keymap-select {
   if [[ $KEYMAP == vicmd ]]; then
-    echo -ne '[2 q'
+    echo -ne '\e[2 q'
   elif [[ $KEYMAP == (main|viins) ]]; then
-    echo -ne '[0 q'
+    echo -ne '\e[5 q'
   fi
 }
 zle -N zle-line-init
@@ -44,8 +44,8 @@ eval "$(starship init zsh)"
 
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
-export MAMBA_EXE='/home/jazzhands/.local/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/home/jazzhands/.micromamba';
+export MAMBA_EXE='/home/vix/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/home/vix/.micromamba';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"
